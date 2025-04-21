@@ -1,3 +1,60 @@
+# Eat-n-Split Project Structure & Workflow
+
+This is a React application for tracking and splitting expenses with friends. The app allows users to manage a list of friends, track balances, and split bills with ease.
+
+## Project Structure
+
+- **Standard Create React App structure** with:
+  - public - Static assets and HTML entry point
+  - src - React components and styles
+  - Configuration files (package.json, .gitignore)
+
+## Component Hierarchy
+
+- **App** (Main container)
+  - **Sidebar** (Left panel)
+    - **FriendsList** - Displays all friends
+      - **Friend** - Individual friend component
+    - **FormAddFriend** - Form to add new friends
+    - **Button** - Reusable button component
+  - **FormSplitBill** - Right panel form for bill splitting
+
+## Core State Management
+
+The app uses React's useState hooks to manage:
+
+1. `friends` - Array of friend objects with name, image, and balance
+2. `showAddFriend` - Boolean to toggle the add friend form
+3. `selectedFriend` - Currently selected friend (or null)
+
+## Application Workflow
+
+1. **View Friends**:
+
+   - App initializes with a preset list of friends
+   - Each friend shows their name, photo, and balance status
+
+2. **Add New Friends**:
+
+   - Click "Add Friend" to show the form
+   - Enter name and image URL (uses a random avatar service)
+   - Submit to add them to the list
+
+3. **Split Bills**:
+
+   - Select a friend to open the split bill form
+   - Enter bill total and your portion
+   - Choose who paid the bill
+   - Friend's portion is calculated automatically
+   - Submit to update balances
+
+4. **Track Balances**:
+   - Positive balance: Friend owes you money
+   - Negative balance: You owe your friend money
+   - Zero balance: You're even
+
+The app uses a clean, visual interface with color coding (green/red) to indicate debt direction and maintains all data in component state.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
